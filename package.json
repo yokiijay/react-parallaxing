@@ -19,6 +19,7 @@
 	"dependencies": {
 		"@emotion/core": "^10.0.35",
 		"@emotion/styled": "^10.0.27",
+		"csstype": "^3.0.3",
 		"react": "^16.13.1"
 	},
 	"devDependencies": {
@@ -27,6 +28,7 @@
 		"@babel/preset-env": "^7.11.5",
 		"@babel/preset-react": "^7.10.4",
 		"@babel/preset-typescript": "^7.10.4",
+		"@emotion/babel-preset-css-prop": "^10.0.27",
 		"@rollup/plugin-babel": "^5.2.1",
 		"@rollup/plugin-commonjs": "^15.0.0",
 		"@rollup/plugin-json": "^4.1.0",

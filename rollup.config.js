@@ -39,5 +39,6 @@ export default {
 		terser(),
 		json(),
 	],
-	external: ['react', '@emotion/core', '@emotion/styled'],
+	external: ['react', '@emotion/core', '@emotion/styled', '@emotion/babel-preset-css-prop'],
+	// @emotion/babel-preset-css-prop jsx内联样式 可以不用引入注释/** jsx jsx */了
 }
