@@ -9,18 +9,18 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx']
 /** @type {import('rollup').RollupOptions} */
 
 export default {
-	input: 'src/main.ts',
+	input: 'src/index.ts',
 	output: [
 		{
 			file: pkg.main,
 			format: 'cjs',
-			sourcemap: true,
+			// sourcemap: true,
 		},
-		{
-			file: pkg.module,
-			format: 'esm',
-			sourcemap: true,
-		},
+		// {
+		// 	file: pkg.module,
+		// 	format: 'esm',
+		// 	sourcemap: true,
+		// },
 	],
 	// output: {
 	// file: 'bundle.js',
