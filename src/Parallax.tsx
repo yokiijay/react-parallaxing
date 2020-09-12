@@ -30,12 +30,16 @@ export type WrapProps = {
 
 const Wrap = styled.div<WrapProps>`
 	display: flex;
+	flex-direction: row;
 	place-content: center;
 	place-items: center;
 	height: ${(props) => (typeof props.height === 'number' ? `${props.height}px` : props.height)};
 	text-transform: uppercase;
 	background-color: ${(props) => props.bgc};
 	overflow: hidden;
+	@media (max-width: 500px) {
+		flex-direction: column;
+	}
 `
 
 export default Parallax

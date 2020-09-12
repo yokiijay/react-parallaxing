@@ -18,6 +18,10 @@ const StyleDiv = styled.div<StyleDivProps>`
 	font-weight: bold;
 	border-radius: 20px;
 	background-color: rgba(255, 255, 255, 0.5);
+	@media (max-width: 500px) {
+		margin-right: 0;
+		margin-bottom: 100px;
+	}
 `
 
 export type FastProps = {
