@@ -5,6 +5,7 @@ import * as React from 'react'
 const Low: React.FC = ({ children }) => <div css={style}>{children}</div>
 
 const style = css`
+	position: -webkit-sticky;
 	font-size: 3em;
 	font-weight: bold;
 	color: rgba(0, 0, 0, 0.6);

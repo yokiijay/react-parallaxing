@@ -29,10 +29,12 @@ export type WrapProps = {
 }
 
 const Wrap = styled.div<WrapProps>`
+	flex: none;
 	display: flex;
 	flex-direction: row;
 	place-content: center;
 	place-items: center;
+	width: 100%;
 	height: ${(props) => (typeof props.height === 'number' ? `${props.height}px` : props.height)};
 	text-transform: uppercase;
 	background-color: ${(props) => props.bgc};
