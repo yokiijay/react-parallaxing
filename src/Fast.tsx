@@ -1,14 +1,9 @@
 import * as React from 'react'
 import styled from '@emotion/styled'
 
-export type StyleDivProps = {
-	width?: number | string
-	height?: number | string
-}
-
-const StyleDiv = styled.div<StyleDivProps>`
-	width: ${(props) => (typeof props.width === 'number' ? `${props.width}px` : props.width)};
-	height: ${(props) => (typeof props.height === 'number' ? `${props.height}px` : props.height)};
+const ParallaxTitle = styled.div`
+	width: 50px;
+	height: 50px;
 	margin-right: 100px;
 	padding: 40px;
 	color: rgba(0, 0, 0, 0.6);
@@ -24,16 +19,18 @@ const StyleDiv = styled.div<StyleDivProps>`
 	}
 `
 
+const ParallaxText = styled.p``
+
 export type FastProps = {
-	order?: string | number
-	width?: string | number
-	height?: string | number
+	title?: string | number
+	text?: string | number
 }
 
-const Fast: React.FC<FastProps> = ({ order = 1, width = 50, height = 50 }) => (
-	<StyleDiv width={width} height={height}>
-		{order}
-	</StyleDiv>
+const Fast: React.FC<FastProps> = ({ title = 'title', text = '' }) => (
+	<React.Fragment>
+		<ParallaxTitle>{title}</ParallaxTitle>
+		{text ? <ParallaxText>{text}</ParallaxText> : null}
+	</React.Fragment>
 )
 
 export default Fast

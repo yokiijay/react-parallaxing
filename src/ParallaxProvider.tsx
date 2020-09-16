@@ -7,6 +7,8 @@ export type WraperProps = {
 	width?: string | number
 	height?: string | number
 	direction?: 'row' | 'column'
+	ref?: any
+	// distance: string | number
 }
 
 const StyleWraper = styled.div<WraperProps>`
@@ -16,6 +18,7 @@ const StyleWraper = styled.div<WraperProps>`
 	height: ${(props) => (typeof props.height === 'number' ? `${props.height}vh` : props.height)};
 	overflow-x: ${(props) => (props.direction === 'row' ? 'scroll' : 'hidden')};
 	overflow-y: ${(props) => (props.direction === 'row' ? 'hidden' : 'scroll')};
+	perspective: 1px;
 `
 
 export interface ParallaxProvicerProps {
@@ -29,20 +32,31 @@ const ParallaxProvider: React.FC<ParallaxProvicerProps> = ({
 	height = 100,
 	direction = 'column',
 	children,
-}) => (
-	<StyleWraper width={width} height={height} direction={direction} css={style}>
-		{children
-			? React.Children.map(children, (child: any) => {
-					return React.cloneElement(child, {
-						direction,
-					})
-			  })
-			: null}
-	</StyleWraper>
-)
+}) => {
+	// const ref = React.createRef<any>()
+	// const [distance, setDistance] = React.useState<number>(1)
+	// React.useEffect(() => {
+	// 	ref.current.addEventListener('scroll', getDistance)
+	// 	return () => {
+	// 		ref?.current?.removeEventListener('scroll', getDistance)
+	// 	}
+	// }, [distance])
+	// const getDistance = (e: any) => {
+	// 	setDistance(e.target.scrollTop / 5)
+	// }
+	return (
+		// <StyleWraper ref={ref} width={width} height={height} direction={direction}>
+		<StyleWraper width={width} height={height} direction={direction}>
+			{children
+				? React.Children.map(children, (child: any) => {
+						return React.cloneElement(child, {
+							direction,
+							// distance,
+						})
+				  })
+				: null}
+		</StyleWraper>
+	)
+}
 
-const style = css`
-	perspective: 1px;
-	-webkit-overflow-scrolling: touch;
-`
 export default ParallaxProvider

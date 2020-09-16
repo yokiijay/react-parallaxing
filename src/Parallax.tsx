@@ -1,43 +1,41 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import * as React from 'react'
+import React, { useEffect, createRef } from 'react'
 import Fast from './Fast'
-import Low from './Slow'
+import Slow from './Slow'
 import { FastProps } from './Fast'
 import styled from '@emotion/styled'
 
-export interface ParallaxProps {
-	fw?: number | string
-	fh?: number | string
-	height?: number | string
+export type BgProps = {
 	bgc?: string
+	img?: string // 添加背景图,后续调整
+	speed?: string | number // 落差滚动速度
+	distance?: string | number
 }
 
-const Parallax: React.FC<FastProps & ParallaxProps> = ({ order, height, bgc, fw, fh, children, ...props }) => {
+const Parallax: React.FC<FastProps & BgProps> = ({ title, text, speed, bgc, img, distance, children }) => {
 	return (
-		<Wrap height={height} bgc={bgc} {...props}>
-			<Fast order={order} width={fw} height={fh} />
-			<Low>{children}</Low>
-		</Wrap>
+		<React.Fragment>
+			<ParallaxContainer bgc={bgc}>
+				<Fast title={title} text={text} />
+				<Slow distance={distance}>{children}</Slow>
+			</ParallaxContainer>
+		</React.Fragment>
 	)
 }
 
-export type WrapProps = {
-	width?: string | number
-	height?: string | number
-	bgc?: string
-}
-
-const Wrap = styled.div<WrapProps>`
-	flex: none;
+const ParallaxContainer = styled.div<BgProps>`
 	display: flex;
 	flex-direction: row;
 	place-content: center;
 	place-items: center;
+	flex-wrap: nowrap;
+	flex: none;
 	width: 100%;
-	height: ${(props) => (typeof props.height === 'number' ? `${props.height}px` : props.height)};
-	text-transform: uppercase;
-	background-color: ${(props) => props.bgc};
+	height: 100%;
+	box-sizing: border-box;
+	background-color: ${(props) => props.bgc || '#ffffff'};
+	transform-style: preserve-3d;
 	overflow: hidden;
 	@media (max-width: 500px) {
 		flex-direction: column;

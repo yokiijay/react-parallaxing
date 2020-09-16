@@ -13,14 +13,10 @@
 		"start": "rm -rf dist && yarn run build:types --watch & yarn run build:babel --source-maps inline --watch",
 		"start:rollup": "rm -rf dist && yarn run build:types --watch & yarn run build:rollup --sourcemap --watch"
 	},
-	"peerDependencies": {
-		"react": "^16.13.1"
-	},
 	"dependencies": {
 		"@emotion/core": "^10.0.35",
 		"@emotion/styled": "^10.0.27",
-		"csstype": "^3.0.3",
-		"react": "^16.13.1"
+		"csstype": "^3.0.3"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.11.6",
