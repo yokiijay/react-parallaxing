@@ -18,11 +18,7 @@ const SlowWrap = styled.div<SlowProps>`
 // perspective属性兼容性不行,只有chrome可以支持
 
 const Slow: React.FC<SlowProps> = ({ distance = -100, children }) => {
-	return (
-		<SlowWrap distance={distance}>
-			{children} <span>test</span>
-		</SlowWrap>
-	)
+	return <SlowWrap distance={distance}>{children}</SlowWrap>
 }
 
 export default Slow
