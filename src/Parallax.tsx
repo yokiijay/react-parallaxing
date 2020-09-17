@@ -10,21 +10,20 @@ export type BgProps = {
 	bgc?: string
 	img?: string // 添加背景图,后续调整
 	speed?: string | number // 落差滚动速度
-	distance?: string | number
+	offset?: string | number // 初始偏移距离
 }
 
-const Parallax: React.FC<FastProps & BgProps> = ({ title, text, speed, bgc, img, distance, children }) => {
+const Parallax: React.FC<FastProps & BgProps> = ({ title, text, speed, bgc, img, offset, children }) => {
 	return (
-		<React.Fragment>
-			<ParallaxContainer bgc={bgc}>
-				<Fast title={title} text={text} />
-				<Slow distance={distance}>{children}</Slow>
-			</ParallaxContainer>
-		</React.Fragment>
+		<ParallaxContainer bgc={bgc}>
+			<Fast title={title} text={text} />
+			<Slow offset={offset}>{children}</Slow>
+		</ParallaxContainer>
 	)
 }
 
 const ParallaxContainer = styled.div<BgProps>`
+	position: relative;
 	display: flex;
 	flex-direction: row;
 	place-content: center;
@@ -34,9 +33,10 @@ const ParallaxContainer = styled.div<BgProps>`
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
-	background-color: ${(props) => props.bgc || '#ffffff'};
+	/* 设置background会遮挡 */
+	/* background-color: ${(props) => props.bgc || 'yellow'}; */
 	transform-style: preserve-3d;
-	overflow: hidden;
+	/* overflow: hidden; */
 	@media (max-width: 500px) {
 		flex-direction: column;
 	}

@@ -7,7 +7,7 @@ export type WraperProps = {
 	width?: string | number
 	height?: string | number
 	direction?: 'row' | 'column'
-	ref?: any
+	// ref?: any
 	// distance: string | number
 }
 
