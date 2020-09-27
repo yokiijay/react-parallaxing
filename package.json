@@ -1,5 +1,5 @@
 {
-	"name": "react_parallaxing",
+	"name": "react-parallaxing",
 	"version": "1.0.0",
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
